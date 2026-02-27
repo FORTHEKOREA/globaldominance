@@ -1,3 +1,0 @@
-/* Netlify SPA redirect rule: route all paths to index.html */
-/* /_redirects */
-/*    /index.html   200
