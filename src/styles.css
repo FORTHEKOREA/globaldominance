@@ -1,0 +1,112 @@
+:root {
+	/* Default to Dark Theme (Territorial.io style) */
+	--bg: #111;
+	--card: #222;
+	--text: #eee;
+	--muted: #888;
+	--accent: #2ea043;
+	/* Green play button */
+}
+
+.light {
+	--bg: #f7f7f8;
+	--card: #ffffff;
+	--text: #111;
+	--muted: #555;
+	--accent: #1f6feb;
+}
+
+* {
+	box-sizing: border-box
+}
+
+body {
+	margin: 0;
+	font-family: system-ui, Segoe UI, Roboto, Arial;
+	background: var(--bg);
+	color: var(--text);
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
+
+.container {
+	width: min(400px, 94%);
+	padding: 24px;
+	text-align: center;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px
+}
+
+.controls {
+	display: flex;
+	gap: 8px;
+	align-items: center
+}
+
+.card {
+	background: var(--card);
+	padding: 24px;
+	border-radius: 12px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3)
+}
+
+input[type="text"] {
+	width: 100%;
+	padding: 12px 16px;
+	margin: 16px 0;
+	border: 2px solid #444;
+	border-radius: 8px;
+	background: #333;
+	color: #fff;
+	font-size: 1.1rem;
+	text-align: center;
+}
+
+input[type="text"]:focus {
+	outline: none;
+	border-color: var(--accent);
+}
+
+.row {
+	display: flex;
+	gap: 8px;
+	align-items: center
+}
+
+button {
+	padding: 12px 20px;
+	border-radius: 8px;
+	border: 0;
+	background: var(--accent);
+	color: white;
+	cursor: pointer;
+	transition: opacity 0.2s
+}
+
+button:hover {
+	opacity: 0.9
+}
+
+button.muted {
+	background: transparent;
+	color: var(--accent);
+	border: 1px solid var(--accent)
+}
+
+.status {
+	margin-top: 10px;
+	color: var(--muted)
+}
+
+.theme {
+	display: flex;
+	align-items: center;
+	gap: 6px
+}

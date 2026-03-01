@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Dominance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+  <div id="map-container"></div>
+
+  <header id="top-bar" class="glass-panel">
+    <div class="logo">Global Dominance</div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <span class="label">Player</span>
+        <span class="value text-blue" id="stat-nickname">-</span>
+      </div>
+      <div class="stat-item">
+        <span class="label">Funds</span>
+        <span class="value text-green" id="stat-funds">$0</span>
+      </div>
+      <div class="stat-item">
+        <span class="label">Territories</span>
+        <span class="value text-blue" id="stat-territories">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="label">Troops</span>
+        <span class="value text-blue" id="stat-troops">0</span>
+      </div>
+
+      <div class="stat-item modernisation">
+        <div class="mod-header">
+          <span class="label">Modernization</span>
+          <span class="value" id="stat-mod-level">Lv.1</span>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-fill lv-1" id="mod-progress-fill"></div>
+        </div>
+        <button id="btn-upgrade">Upgrade</button>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px;align-items:center;">
+      <button id="btn-end-turn" style="
+        background: rgba(46,160,67,0.15);
+        border: 1px solid var(--color-green);
+        color: var(--color-green);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-family: var(--font-display);
+        font-size: 0.8rem;
+        cursor: pointer;
+        letter-spacing: 1px;
+        transition: all 0.2s;
+      ">END GAME</button>
+      <a href="/" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;">Lobby</a>
+    </div>
+  </header>
+
+  <aside id="info-panel" class="glass-panel hidden">
+    <div class="panel-header">
+      <h2 id="region-name">Region Name</h2>
+      <span class="badge" id="region-owner-badge">Neutral</span>
+    </div>
+
+    <div class="info-row">
+      <span>Population</span>
+      <strong id="region-population">-</strong>
+    </div>
+    <div class="info-row">
+      <span>GDP per capita</span>
+      <strong id="region-gdp">-</strong>
+    </div>
+    <div class="info-row">
+      <span>Troops</span>
+      <strong id="region-troops">-</strong>
+    </div>
+    <div class="info-row">
+      <span>Income / sec</span>
+      <strong id="region-income">-</strong>
+    </div>
+
+    <div class="action-area">
+      <button class="action-btn btn-red hidden" id="btn-attack">Attack</button>
+      <button class="action-btn btn-blue hidden" id="btn-move">Move Troops</button>
+      <button class="action-btn btn-blue hidden" id="btn-recruit">Recruit Troops</button>
+      <button class="action-btn btn-orange hidden" id="btn-alliance">Toggle Alliance</button>
+      <button class="action-btn btn-orange hidden" id="btn-sell">Sell Territory</button>
+    </div>
+  </aside>
+
+  <div id="notification-area"></div>
+
+  <div id="alliance-popup" style="
+    display:none;
+    position:fixed;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    z-index:200;
+    min-width:320px;
+    padding:28px;
+    border-radius:12px;
+  " class="glass-panel">
+    <h3 style="margin-bottom:12px;font-family:var(--font-display);">Alliance Request</h3>
+    <p id="alliance-popup-msg" style="margin-bottom:20px;color:var(--text-muted);"></p>
+    <div style="display:flex;gap:12px;">
+      <button id="btn-accept-alliance" class="action-btn btn-blue" style="flex:1;">Accept</button>
+      <button id="btn-reject-alliance" class="action-btn btn-red" style="flex:1;">Reject</button>
+    </div>
+  </div>
+
+  <div id="loading-overlay" style="
+    position:fixed;inset:0;
+    background:#090c10;
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    z-index:999;
+    gap:20px;
+  ">
+    <div style="font-family:'Orbitron',sans-serif;font-size:2rem;letter-spacing:4px;color:#58a6ff;text-shadow:0 0 20px rgba(88,166,255,0.6);">
+      GLOBAL DOMINANCE
+    </div>
+    <div id="loading-msg" style="color:#8b949e;font-size:0.9rem;letter-spacing:2px;">Loading world map...</div>
+    <div style="width:200px;height:4px;background:#30363d;border-radius:2px;overflow:hidden;">
+      <div id="loading-bar" style="height:100%;width:0%;background:#58a6ff;box-shadow:0 0 10px #58a6ff;transition:width 0.4s ease;border-radius:2px;"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/game.js"></script>
+</body>
+
+</html>

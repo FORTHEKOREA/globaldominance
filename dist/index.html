@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Dominance - Lobby</title>
+  <script type="module" crossorigin src="/assets/main-nzRyIOsI.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/firebase-Dd5CwESS.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-s0fYFzAr.css">
+</head>
+
+<body>
+  <main class="container">
+    <header>
+      <h1 id="title">Lobby</h1>
+      <div class="controls">
+        <select id="langSelect" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="ko">KO</option>
+        </select>
+        <label class="theme">
+          <input id="themeToggle" type="checkbox" />
+          <span id="themeLabel">Dark</span>
+        </label>
+      </div>
+    </header>
+
+    <section class="card">
+      <label id="nicknameLabel" for="nicknameInput">Nickname</label>
+      <input id="nicknameInput" type="text" placeholder="Enter nickname" maxlength="30" />
+
+      <button id="saveBtn" style="display:none;">Save</button>
+      <p id="statusText" class="status"></p>
+
+      <button id="playBtn" style="
+        width: 100%;
+        margin-top: 16px;
+        padding: 16px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+      ">
+        Play Now
+      </button>
+    </section>
+  </main>
+
+</body>
+
+</html>
